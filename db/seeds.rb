@@ -8,7 +8,8 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-admin = User.create(name: 'Tom', role: 'admin');
+admin = User.create(name: 'Admin', role: 'admin');
+user = User.create(name: 'User');
 
 mountain1 = Mountain.create(
   name: 'Greater Chimgan',
