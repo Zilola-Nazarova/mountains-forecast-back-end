@@ -2,7 +2,6 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   context 'new user' do
-
     it 'is valid with existing name' do
       expect(User.create(name: 'Tom')).to be_valid
     end
@@ -17,7 +16,6 @@ RSpec.describe User, type: :model do
   end
 
   context 'role attribute' do
-
     it "is assigned to 'user' by default" do
       user = User.create(name: 'Tom')
       expect(user.role).to eq('user')
