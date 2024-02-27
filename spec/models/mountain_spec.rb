@@ -1,15 +1,25 @@
 require 'rails_helper'
 
 RSpec.describe Mountain, type: :model do
-  let(:valid_attributes) { { 'name' => 'Mountain_1', 'latitude' => 41.4951900, 'longitude' => 70.0586718, 'elevation' => 3309.6 } }
+  let(:valid_attributes) do
+    { 'name' => 'Mountain_1', 'latitude' => 41.4951900, 'longitude' => 70.0586718, 'elevation' => 3309.6 }
+  end
   let(:missing_name) { { 'latitude' => 41.4951900, 'longitude' => 70.0586718, 'elevation' => 3309.6 } }
   let(:missing_latitude) { { 'name' => 'Mountain_1', 'longitude' => 70.0586718, 'elevation' => 3309.6 } }
   let(:missing_longitude) { { 'name' => 'Mountain_1', 'latitude' => 41.4951900, 'elevation' => 3309.6 } }
   let(:missing_elevation) { { 'name' => 'Mountain_1', 'latitude' => 41.4951900, 'longitude' => 70.0586718 } }
-  let(:string_latitude) { { 'name' => '', 'latitude' => '41.4951900', 'longitude' => 70.0586718, 'elevation' => 3309.6 } }
-  let(:string_longitude) { { 'name' => '', 'latitude' => 41.4951900, 'longitude' => '70.0586718', 'elevation' => 3309.6 } }
-  let(:string_elevation) { { 'name' => '', 'latitude' => 41.4951900, 'longitude' => 70.0586718, 'elevation' => '3309.6' } }
-  let(:negative_elevation) { { 'name' => '', 'latitude' => 41.4951900, 'longitude' => 70.0586718, 'elevation' => -3309.6 } }
+  let(:string_latitude) do
+    { 'name' => '', 'latitude' => '41.4951900', 'longitude' => 70.0586718, 'elevation' => 3309.6 }
+  end
+  let(:string_longitude) do
+    { 'name' => '', 'latitude' => 41.4951900, 'longitude' => '70.0586718', 'elevation' => 3309.6 }
+  end
+  let(:string_elevation) do
+    { 'name' => '', 'latitude' => 41.4951900, 'longitude' => 70.0586718, 'elevation' => '3309.6' }
+  end
+  let(:negative_elevation) do
+    { 'name' => '', 'latitude' => 41.4951900, 'longitude' => 70.0586718, 'elevation' => -3309.6 }
+  end
   let(:empty_name) { { 'name' => '', 'latitude' => 41.4951900, 'longitude' => 70.0586718, 'elevation' => 3309.6 } }
   let(:long_name) { { 'name' => 'A' * 37, 'latitude' => 41.4951900, 'longitude' => 70.0586718, 'elevation' => 3309.6 } }
 
@@ -41,7 +51,6 @@ RSpec.describe Mountain, type: :model do
     end
   end
 
-  
   context 'longitude attribute' do
     it 'should not be missing' do
       expect(Mountain.create(missing_longitude)).to_not be_valid
@@ -52,7 +61,6 @@ RSpec.describe Mountain, type: :model do
     end
   end
 
-  
   context 'elevation attribute' do
     it 'should not be missing' do
       expect(Mountain.create(missing_elevation)).to_not be_valid
